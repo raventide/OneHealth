@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net/net.nz/thymeleaft/layout"
+      layout:decorator="layout/default">
+
+<head>
+    <meta charset="UTF-8">
+    <title>人员管理</title>
+</head>
+<body>
+    <form th:action="@{/manage}" th:object="${personBean}" method="post">
+
+    <div>
+        <label>添加记录对象  </label>
+
+        <div class="input-field col s6">
+            <label >姓名：</label>
+            <input id="name" type="text" th:field="${personBean.name}"/>
+        </div>
+        <div class="input-field col s6">
+            <label >年龄：</label>
+            <input id="age" type="text" th:field="${personBean.age}"/>
+        </div>
+        <div class="input-field col s10">
+            <label >备注：</label>
+            <input id="comments" type="text" th:field="${personBean.comments}"/>
+        </div>
+    </div>
+        <ul th:if="${#fields.hasErrors('*')}" >
+            <li th:each="err : ${#fields.errors('*')}"
+                th:text="${err}">Input is incorrect</li>
+        </ul>
+    <div class="row s12">
+        <button class="btn waves-effect waves-light" type="submit" name="save">
+            提交
+            <i class="mdi-content-send right"></i>
+        </button>
+    </div>
+    </form>
+    <hr/>
+</body>
+</html>

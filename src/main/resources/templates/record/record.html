@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net/net.nz/thymeleaft/layout"
+      layout:decorator="layout/default">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form method="post">
+    <div class="row">
+        <label>对象： </label>
+        <select name="personName">
+
+        </select>
+        <label>记录项：</label>
+        <select name="itemName">
+            <option value="bloodPressure">血压</option>
+            <option value="bloodSugar">血糖</option>
+            <option value="steps">步数</option>
+            <option value="bodyWeight">体重</option>
+            <option value="heartRate">心率</option>
+        </select>
+
+        <div class="input-field col s6">
+            <label >数据值：</label>
+            <input id="data" type="text"/>
+        </div>
+    </div>
+</form>
+
+</body>
+</html>
