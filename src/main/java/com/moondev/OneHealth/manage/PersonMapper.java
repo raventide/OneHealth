@@ -14,7 +14,7 @@ public interface PersonMapper {
     @Update("update people set name=#{name},age=#{age},comments=#{comments} where id = #{id}")
     Long update(PersonBean person);
 
-    @Delete("delete from delete where id=#{id}")
+    @Delete("delete from people where id=#{id}")
     Long delete(@Param("id") int id);
 
     @Select("select id,name,age,comments from people")
@@ -22,5 +22,6 @@ public interface PersonMapper {
 
     @Select("select id,name,age,comments from people where id=#{id}")
     PersonBean selectById(@Param("id") int id);
+
 }
 

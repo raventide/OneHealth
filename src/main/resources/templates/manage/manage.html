@@ -20,7 +20,7 @@
         </div>
         <div class="input-field col s6">
             <label >年龄：</label>
-            <input id="age" type="text" th:field="${personBean.age}"/>
+            <input id="age" type="number" th:field="${personBean.age}"/>
         </div>
         <div class="input-field col s10">
             <label >备注：</label>
@@ -39,5 +39,37 @@
     </div>
     </form>
     <hr/>
+    <div>
+        <label>现有对象：</label>
+        <br>
+        <table border="1">
+            <tr>
+                <!--<th>id</th>-->
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>备注</th>
+                <th>操作</th>
+            </tr>
+
+            <tr th:each="person : ${peopleList}" >
+                <!--<td th:text="${person.id}"></td>-->
+                <td th:text="${person.name}"></td>
+                <td th:text="${person.age}"></td>
+                <td th:text="${person.comments}"></td>
+                <td>
+                    <form th:object="${personBean}" method="post">
+                        <input th:id="id" type="hidden" th:attr="value=${person.id}" th:name="id"/>
+                    <button type="submit" th:formaction="@{/manage/edit}">
+                        编辑
+                    </button>
+                    <button type="submit" th:formaction="@{manage/delete}">
+                        删除
+                    </button>
+                    </form>
+                </td>
+            </tr>
+
+        </table>
+    </div>
 </body>
 </html>

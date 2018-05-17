@@ -14,8 +14,10 @@
     <div class="row">
         <label>对象： </label>
         <select name="personName">
+            <option th:each="person : ${people}" th:value="${person.id}" th:text="${person.name}"></option>
 
         </select>
+        <br>
         <label>记录项：</label>
         <select name="itemName">
             <option value="bloodPressure">血压</option>
@@ -27,7 +29,7 @@
 
         <div class="input-field col s6">
             <label >数据值：</label>
-            <input id="data" type="text"/>
+            <input id="data" type="number"/>
         </div>
     </div>
 </form>

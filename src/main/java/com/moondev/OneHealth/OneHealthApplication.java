@@ -17,6 +17,6 @@ public class OneHealthApplication {
 
 	@RequestMapping("/")
 	public String home() {
-		return "redirect:/manage";
+		return "redirect:/record";
 	}
 }
