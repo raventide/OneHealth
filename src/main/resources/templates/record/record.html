@@ -6,20 +6,20 @@
       layout:decorator="layout/default">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>快速记录</title>
 </head>
 <body>
-
-<form method="post">
+<div>
+<form method="post" th:action="@{/record}" th:object="${recordBean}" th:method="post">
     <div class="row">
         <label>对象： </label>
-        <select name="personName">
+        <select name="personName" th:field="${recordBean.personId}">
             <option th:each="person : ${people}" th:value="${person.id}" th:text="${person.name}"></option>
 
         </select>
         <br>
         <label>记录项：</label>
-        <select name="itemName">
+        <select name="itemName" th:field="${recordBean.type}">
             <option value="bloodPressure">血压</option>
             <option value="bloodSugar">血糖</option>
             <option value="steps">步数</option>
@@ -29,10 +29,15 @@
 
         <div class="input-field col s6">
             <label >数据值：</label>
-            <input id="data" type="number"/>
+            <input id="value" type="number" th:field="${recordBean.value}"/>
         </div>
+        <div class="input-field col s6">
+            <label >备注：</label>
+            <input id="comments" type="text" th:field="${recordBean.comments}"/>
+        </div>
+        <button type="submit">提交</button>
     </div>
 </form>
-
+</div>
 </body>
 </html>

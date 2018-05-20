@@ -17,6 +17,8 @@ public class RecordBean {
     @NotNull
     private float value;
 
+    private String comments;
+
     private LocalDateTime dateTime;
 
     public int getRecordId() {
@@ -57,5 +59,13 @@ public class RecordBean {
 
     public void setDateTime(LocalDateTime dateTime) {
         this.dateTime = dateTime;
+    }
+
+    public String getComments() {
+        return comments;
+    }
+
+    public void setComments(String comments) {
+        this.comments = comments;
     }
 }
